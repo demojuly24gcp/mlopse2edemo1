@@ -33,6 +33,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch }} # <-- This is the key change!
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -52,4 +54,3 @@ jobs:
         with:
           name: trained-model
           path: ./model/
-
