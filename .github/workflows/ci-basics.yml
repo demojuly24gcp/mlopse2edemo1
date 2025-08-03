@@ -10,6 +10,21 @@ on:
       - 'train/**'
       - 'requirements.txt'
   pull_request:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to checkout and run the workflow on'
+        required: true
+        default: 'main'
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'info'
+        type: choice
+        options:
+          - info
+          - debug
+          - warning
 
 jobs:
   train-model:
